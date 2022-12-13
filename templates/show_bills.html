@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Group's bills</h1>
+
+{% if all_bills %}
+{% for bill in all_bills %}
+<hr>
+<p>{{bill.name}}</p>
+<p>{{bill.sum}}</p>
+{% if bill.user %}
+<p><b>User:</b> {{bill.user.username}}</p>
+{% endif %}
+
+{% endfor %}
+{% endif %}
+<hr>
+<p><a href="{{ url_for('add_bill')}}">Add bill</a></p>
+
+{% endblock %}

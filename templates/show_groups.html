@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Select Your Group</h1>
+
+{% if all_groups %}
+{% for group in all_groups %}
+<hr>
+<p>{{group.name}}</p>
+<p>{{group.description}}</p>
+{% if group.users %}
+<p><b>Users:</b>
+<p><b>User:</b> {{group.user.username}}</p>
+{% endif %}
+
+{% endfor %}
+{% endif %}
+<hr>
+<p><a href="{{ url_for('add_group')}}">Add group</a></p>
+
+{% endblock %}
